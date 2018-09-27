@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: yarn start
+    volumes:
+      - .:/website
+    ports:
+      - '3000:3000'
