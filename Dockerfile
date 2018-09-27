@@ -8,16 +8,16 @@ RUN mkdir -p /website
 WORKDIR /website
 COPY ./ ./
 
-RUN npm install
+RUN yarn install
 
 CMD if [ ${APP_ENV} = production]; \
         then \
-        npm install -g http-server && \
-        npm run build && \
+        yarn add http-server && \
+        yarn build:production && \
         cd build && \
         hs -p 3000; \
         else \
-        npm run start; \
+        yarn start; \
         fi
 
 EXPOSE 3000
